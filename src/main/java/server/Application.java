@@ -53,8 +53,10 @@ public class Application {
     ) {
         try {
             String path = UPLOAD_DIR + "/" + file.getOriginalFilename();
+            System.out.println("Copying file " + path);
             FileCopyUtils.copy(file.getBytes(), new File(path));
         } catch (IOException e) {
+            System.out.println("Error uploading file.");
             e.printStackTrace();
         }
         return "redirect:/";
